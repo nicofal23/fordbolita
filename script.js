@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const producto = data.find(item => item.codigo == codigoInput);
 
         if (producto) {
-            const precioConPorcentaje = Math.ceil(producto.precio * 1.0989); // Añadir el 9.89%
+            const precioConPorcentaje = Math.ceil(producto.precio * 1.0989);
+            const precioCon50PorCiento = Math.ceil(precioConPorcentaje * 1.5);
 
             // Configurar las opciones de SweetAlert con estilo y posición
             const swalOptions = {
                 title: `Código: ${producto.codigo}`,
-                text: `Descripción: ${producto.descripcion}\nPrecio: $${precioConPorcentaje.toFixed(2)}`,
+                text: `Descripción: ${producto.descripcion}\nPrecio: $${precioCon50PorCiento.toFixed(2)}`,
                 icon: 'success',
                 position: 'absolute', // Establecer la posición en absolute
                 customClass: {
